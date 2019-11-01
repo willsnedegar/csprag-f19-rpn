@@ -23,24 +23,18 @@ def calculate(arg):
                 arg2 = stack.pop()
                 arg1 = stack.pop()
                 result = function(arg1 - arg2)
-                stack.append(result
-    elif token == '-':
-        arg2 = stack.pop()
-        arg1 = stack.pop()
-        result = arg1 - arg2
-        stack.append(result)
-    else:
-        stack.append(int(token))
+                stack.append(result)
+            except TypeError:
+                pass
 
-        #print(stack)
-    if len(stack) != 1:
-
-
+        if len(stack) != 1:
+            raise TypeError('malformed input')
+        return stack.pop()
 
 def main():
- while True:
-     result = calculate(input('rpn calc> '))
-     print(result)
+    while True:
+        result = calculate(input('rpn calc> '))
+        print(result)
 
  if __name__ == '__main__': # Note: that's "underscore underscore n a m e ..."
  main()
