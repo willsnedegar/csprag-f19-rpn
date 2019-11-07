@@ -12,6 +12,10 @@ class TestBasics(unittest.TestCase):
     def test_mul(self):
         result = rpn.calculate('12 8 *')
         self.assertEqual(96, result)
-    def test_div2(self):
+    def test_div(self):
         result = rpn.calculate('12 4 /')
         self.assertEqual(3, result)
+	def test_exp(self):
+        result = rpn.calculate('2 3 ^')
+        self.assertEqual(8, result)
+
